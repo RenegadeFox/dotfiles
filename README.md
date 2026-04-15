@@ -12,7 +12,7 @@ On a fresh Mac:
 
 ```bash
 git clone https://github.com/RenegadeFox/dotfiles.git ~/.dotfiles
-~/.dotfiles/install.sh
+zsh ~/.dotfiles/install.sh
 ```
 
 When the script finishes, a new Terminal window will open using the

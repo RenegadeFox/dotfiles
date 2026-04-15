@@ -18,6 +18,10 @@ BACKUP_DIR="$HOME/.dotfiles_backup/$CURRENT_DATE_TIME"
 mkdir -p "$HOME/.config"
 # Create the backup directory
 mkdir -p "$BACKUP_DIR"
+# Create the local bin directory if it doesn't exist
+if [[ ! -f "$HOME/.local/bin" ]]; then
+  mkdir -p "$HOME/.local/bin"
+fi
 
 # Backup current .zshrc and startship.toml configs if they exist
 if [ -e "$HOME/.zshrc" ]; then
