@@ -18,11 +18,11 @@ cdl() {
 # otherwise fallback to using ls
 list_dir_contents() {
   # If exa is installed, use it
-  if command -v exa >/dev/null 2>&1; then
+  if command -v eza >/dev/null 2>&1; then
     # List contents using exa
-    exa -lha --color=always --group-directories-first --no-file-size --no-time
+    eza -lha --color=always --group-directories-first --no-file-size --no-time
   else
     # List contents using ls
-    ls -la --color=always --group-directories-first
+    ls -la --color=always
   fi
 }
