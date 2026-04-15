@@ -26,3 +26,11 @@ list_dir_contents() {
     ls -la --color=always
   fi
 }
+
+# Pull latest dotfiles and reload shell config
+update_dotfiles() {
+  ( cd "$DOTFILES" && git pull ) && exec zsh
+}
+
+# dotfiles reinstall if fonts, terminal profile, or other files other than alias were updated.
+alias dotfiles_reinstall="zsh $DOTFILES/install.sh"
