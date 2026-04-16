@@ -6,7 +6,7 @@ aliases() {
     "ll"          "List directory contents (long format)"
     "cll"         "Clear the terminal and then list directory contents (long format)"
     "cdl"         "Change directory and list contents (long format)"
-    "bundle_id"   "Get the bundle ID of an app from the passed in path"
+    "bundleid"   "Get the bundle ID of an app from the passed in path"
     "df-update"   "Pull latest dotfiles from GitHub repo and reload the shell"
     "df-reinstal" "Re-run the dotfiles installer with optional flags"
     "aliases"     "Show this list"
@@ -29,7 +29,7 @@ alias df-reinstall="reinstall_dotfiles"
 # Functions
 
 # Get bundle ID of app from path
-bundle_id() {
+bundleid() {
   codesign -dv "$@" 2>&1 | /usr/bin/awk -F'=' '/^Identifier/ { print $2 }'
 }
 

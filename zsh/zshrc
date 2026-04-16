@@ -7,8 +7,12 @@ export DOTFILES="__DOTFILES_PATH__"
 # Set the default editor in Terminal
 export EDITOR='nano'
 
-# Source aliases
+# --- Source aliases ---
 source "$DOTFILES/zsh/aliases.zsh"
 
-# Ensure Starship is active/enabled
+# --- Ensure Starship is active/enabled ---
 eval "$(starship init zsh)"
+
+# --- Add zsh-autosuggestions ---
+source "$DOTFILES/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+bindkey '\e[C' autosuggest-accept   # accept with right arrow

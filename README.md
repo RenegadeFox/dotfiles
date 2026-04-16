@@ -5,6 +5,7 @@ Minimal personal zsh setup for macOS. No Homebrew, no oh-my-zsh — just:
 - A handful of aliases and helper functions
 - [Starship](https://starship.rs) for the prompt
 - [FiraCode Nerd Font](https://www.nerdfonts.com) + a matching Terminal.app profile
+- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) for history-based command suggestions
 
 ## Install
 
@@ -21,9 +22,10 @@ that the install is done — you can close the original.
 Skip parts of the install that don't apply to your machine:
 
 ```bash
-zsh ~/.dotfiles/install.sh --no-terminal    # skip Terminal.app profile setup
-zsh ~/.dotfiles/install.sh --no-fonts       # skip font installation
-zsh ~/.dotfiles/install.sh --no-starship    # skip Starship installation
+zsh ~/.dotfiles/install.sh --no-terminal      # skip Terminal.app profile setup
+zsh ~/.dotfiles/install.sh --no-fonts         # skip font installation
+zsh ~/.dotfiles/install.sh --no-starship      # skip Starship installation
+zsh ~/.dotfiles/install.sh --no-autosuggest   # skip zsh-autosuggestions installation
 ```
 
 Flags can be combined:
@@ -39,11 +41,14 @@ Run `zsh ~/.dotfiles/install.sh --help` for the full list.
 1. Backs up any existing `~/.zshrc` and `~/.config/starship.toml` to `~/.dotfiles_backup/<timestamp>/`.
 2. Renders `zsh/zshrc` with the actual repo path baked in and symlinks it to `~/.zshrc`.
 3. Symlinks `starship/starship.toml` → `~/.config/starship.toml`.
-4. Copies `fonts/*.ttf` into `~/Library/Fonts/` (no `sudo` needed).
-5. Installs Starship to `~/.local/bin` (no Homebrew required).
-6. Imports the `FiraCode.terminal` profile and sets it as the default for Terminal.app.
+4. Clones [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) into `plugins/`.
+5. Copies `fonts/*.ttf` into `~/Library/Fonts/` (no `sudo` needed).
+6. Installs Starship to `~/.local/bin` (no Homebrew required).
+7. Imports the `FiraCode.terminal` profile and sets it as the default for Terminal.app.
 
-Steps 4–6 can each be skipped with the `--no-*` flags above.
+Steps 4–7 can each be skipped with the `--no-*` flags above. The installer
+is idempotent — safe to re-run. Existing configs are backed up, and plugins
+that are already installed are skipped.
 
 ## Layout
 
@@ -53,6 +58,8 @@ Steps 4–6 can each be skipped with the `--no-*` flags above.
 ├── install.sh
 ├── .gitignore
 ├── fonts/                   # FiraCode Nerd Font TTFs
+├── plugins/                 # cloned at install time, git-ignored
+│   └── zsh-autosuggestions/
 ├── starship/
 │   └── starship.toml        # → ~/.config/starship.toml
 ├── terminal/
@@ -66,15 +73,16 @@ Steps 4–6 can each be skipped with the `--no-*` flags above.
 
 Run `aliases` in the terminal to see this list at any time.
 
-| Command        | Description                                 |
-| -------------- | ------------------------------------------- |
-| `c`            | Clear the terminal                          |
-| `ll`           | List directory contents (long format)       |
-| `cll`          | Clear terminal then list directory contents |
-| `cdl`          | Change directory and list contents          |
-| `df-update`    | Pull latest dotfiles and reload shell       |
-| `df-reinstall` | Re-run the dotfiles installer               |
-| `aliases`      | Show all available commands                 |
+| Command        | Description                                         |
+| -------------- | --------------------------------------------------- |
+| `bundleid`     | Get the bundle ID of an app from the passed in path |
+| `c`            | Clear the terminal                                  |
+| `ll`           | List directory contents (long format)               |
+| `cll`          | Clear terminal then list directory contents         |
+| `cdl`          | Change directory and list contents                  |
+| `df-update`    | Pull latest dotfiles and reload shell               |
+| `df-reinstall` | Re-run the dotfiles installer                       |
+| `aliases`      | Show all available commands                         |
 
 Edit or add aliases in `zsh/aliases.zsh`. Changes take effect on the next
 shell or after running `df-update`.
