@@ -15,4 +15,4 @@ eval "$(starship init zsh)"
 
 # --- Add zsh-autosuggestions ---
 source "$DOTFILES/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
-bindkey '\e[C' autosuggest-accept   # accept with right arrow
+bindkey '\e[Z' autosuggest-accept   # accept with Shift+Tab

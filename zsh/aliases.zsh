@@ -9,6 +9,7 @@ aliases() {
     "bundleid"   "Get the bundle ID of an app from the passed in path"
     "df-update"   "Pull latest dotfiles from GitHub repo and reload the shell"
     "df-reinstal" "Re-run the dotfiles installer with optional flags"
+    "df-regen"    "Re-generates the zshrc.generated file based on the zsh template file and reloads the shell"
     "aliases"     "Show this list"
   )
 
@@ -25,6 +26,8 @@ alias cll="clear;list_directory_contents"
 alias ll="list_directory_contents"
 alias df-update="update_dotfiles"
 alias df-reinstall="reinstall_dotfiles"
+# Regenerate zshrc from template and reload
+alias df-regen='sed "s|__DOTFILES_PATH__|$DOTFILES|g" "$DOTFILES/zsh/zshrc" > "$DOTFILES/zsh/zshrc.generated" && exec zsh'
 
 # Functions
 
