@@ -73,16 +73,17 @@ that are already installed are skipped.
 
 Run `aliases` in the terminal to see this list at any time.
 
-| Command        | Description                                         |
-| -------------- | --------------------------------------------------- |
-| `bundleid`     | Get the bundle ID of an app from the passed in path |
-| `c`            | Clear the terminal                                  |
-| `ll`           | List directory contents (long format)               |
-| `cll`          | Clear terminal then list directory contents         |
-| `cdl`          | Change directory and list contents                  |
-| `df-update`    | Pull latest dotfiles and reload shell               |
-| `df-reinstall` | Re-run the dotfiles installer                       |
-| `aliases`      | Show all available commands                         |
+| Command        | Description                                                                                |
+| -------------- | ------------------------------------------------------------------------------------------ |
+| `bundleid`     | Get the bundle ID of an app from the passed in path                                        |
+| `c`            | Clear the terminal                                                                         |
+| `ll`           | List directory contents (long format)                                                      |
+| `cll`          | Clear terminal then list directory contents                                                |
+| `cdl`          | Change directory and list contents                                                         |
+| `df-update`    | Pull latest dotfiles and reload shell                                                      |
+| `df-reinstall` | Re-run the dotfiles installer                                                              |
+| `df-regen`     | Re-generates the zshrc.generated file based on the zsh template file and reloads the shell |
+| `aliases`      | Show all available commands                                                                |
 
 Edit or add aliases in `zsh/aliases.zsh`. Changes take effect on the next
 shell or after running `df-update`.
