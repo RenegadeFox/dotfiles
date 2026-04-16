@@ -1,5 +1,5 @@
 # Add local bin directory to path
-export PATH=$HOME/.local/bin:$PATH
+export PATH="$HOME/.local/bin:$PATH"
 
 # Path to the dotfiles root directory
 export DOTFILES="__DOTFILES_PATH__"

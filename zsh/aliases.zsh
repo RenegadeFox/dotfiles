@@ -27,6 +27,11 @@ alias df-reinstall="reinstall_dotfiles"
 
 # Functions
 
+# Get bundle ID of app from path
+bundle_id() {
+  codesign -dv "$@" 2>&1 | /usr/bin/awk -F'=' '/^Identifier/ { print $2 }'
+}
+
 # Change directory and list contents
 # Usage: cd [directory]
 # If no directory is provided, the default is $HOME
