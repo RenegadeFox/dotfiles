@@ -1,11 +1,20 @@
 alias c="clear"
 alias cll="clear;list_dir_contents"
 alias ll="list_dir_contents"
+alias cdl="change_dir_clear_and_list"
+alias aliases="alias | sort"
+alias df-update="update_dotfiles"
+
+# dotfiles reinstall if fonts, terminal profile, or other files other than alias were updated.
+alias df-reinstall="zsh $DOTFILES/install.sh"
+
+
+# Functions
 
 # Change directory and list contents
 # Usage: cd [directory]
 # If no directory is provided, the default is $HOME
-cdl() {
+change_dir_clear_and_list() {
   local target_dir="${1:-$HOME}"
 
   if builtin cd "$target_dir"; then
@@ -31,6 +40,3 @@ list_dir_contents() {
 update_dotfiles() {
   ( cd "$DOTFILES" && git pull ) && exec zsh
 }
-
-# dotfiles reinstall if fonts, terminal profile, or other files other than alias were updated.
-alias dotfiles_reinstall="zsh $DOTFILES/install.sh"
