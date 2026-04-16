@@ -45,7 +45,7 @@ list_directory_contents() {
   # If exa is installed, use it
   if command -v eza >/dev/null 2>&1; then
     # List contents using exa
-    eza -lha --color=always --group-directories-first --no-file-size --no-time
+    eza -lha --color=always --group-directories-first --no-filesize --no-time
   else
     # List contents using ls
     ls -la --color=always
