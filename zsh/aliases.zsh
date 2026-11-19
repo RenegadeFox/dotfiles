@@ -53,6 +53,11 @@ s3upload() {
   curl -s "https://jamf-400-course.s3.us-east-2.amazonaws.com/amer/8/$filePath" | sha256
 }
 
+s3url() {
+  local filePath="$1"
+  echo "https://jamf-400-course.s3.us-east-2.amazonaws.com/amer/8/$filePath"
+}
+
 s3checksum() {
   local filePath="$1"
   curl -s "https://jamf-400-course.s3.us-east-2.amazonaws.com/amer/8/$filePath" | sha256
