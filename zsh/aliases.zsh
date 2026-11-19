@@ -48,6 +48,9 @@ alias s3list="aws s3 ls s3://jamf-400-course/amer/8/ --profile jamftraining"
 s3upload() {
   local filePath="$1"
   aws s3 cp "$filePath" s3://jamf-400-course/amer/8/ --profile jamftraining
+  echo "URL: https://jamf-400-course.s3.us-east-2.amazonaws.com/amer/8/$filePath"
+  echo -n "Checksum: "
+  curl -s "https://jamf-400-course.s3.us-east-2.amazonaws.com/amer/8/$filePath" | sha256
 }
 
 s3checksum() {
